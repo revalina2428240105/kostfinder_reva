@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: kostfinder
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci && npm run db:generate && npm run build
+    startCommand: npm run db:deploy && npm run start:api
+    initialDeployHook: npm run owner:create
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: kostfinder-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: OWNER_EMAIL
+        sync: false
+      - key: OWNER_PASSWORD
+        sync: false
+      - key: PORT
+        value: "10000"
+      - key: UPLOAD_DIR
+        value: /tmp/kostfinder-uploads
+      - key: PRIVATE_UPLOAD_DIR
+        value: /tmp/kostfinder-private-uploads
+
+databases:
+  - name: kostfinder-db
+    plan: free
+    region: singapore
+    postgresMajorVersion: "16"
+    databaseName: kostfinder
+    user: kostfinder

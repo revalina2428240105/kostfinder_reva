@@ -1,0 +1,4 @@
+.inline-notice{background:#f5ebe3;border:1px solid #ead7ca;color:#795d4d;border-radius:7px;padding:10px 12px;font-size:10px;line-height:1.5;margin:10px 0}
+.input-wrap input:focus-visible,button:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid #829376;outline-offset:2px}
+.property-image:focus-visible img{transform:scale(1.03)}
+.not-found{min-height:60vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}.not-found>span{font-family:'Playfair Display',serif;font-size:72px;color:var(--sage)}.not-found h1{font-family:'Playfair Display',serif;font-weight:500;font-size:36px;margin:8px 0}.not-found p{font-size:12px;color:var(--muted);max-width:480px;line-height:1.7}.not-found>div{display:flex;gap:9px;margin-top:13px}
